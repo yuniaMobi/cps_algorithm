@@ -2,7 +2,7 @@
 Denote
 
 
-```math
+```tex
 e^{i\pi} + 1 = 0
 ```
 $$

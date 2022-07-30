@@ -1,10 +1,6 @@
 
 Denote
 
-
-```tex
-e^{i\pi} + 1 = 0
-```
 $$
 \begin{align}
 c_i: & \text{volumn of client } i \\

@@ -1,10 +1,12 @@
 trip 53 bus 55 bus 77 taxi (see file 'optimization improvement example 1')
 
 To yield the suggested optimal, we could follow two operations:
-area swap between bus 53 and bus 55
-bookings swap between bus 53 and taxi 77 (not sure if it could be achieved using syphoon booking)
+```text
+1 area swap between bus 53 and bus 55
+2 bookings swap between bus 53 and taxi 77 (not sure if it could be achieved using syphoon booking)
 	syphoon booking between taxi 77 and bus 53
 	another syphoon booking between bus 53 and taxi 77
+```
 
 #### area swap
 One of the reason could be how we handling the candidates resulted from local search swap_area()

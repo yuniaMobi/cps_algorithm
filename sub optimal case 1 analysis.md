@@ -1,10 +1,10 @@
 trip 53 bus 55 bus 77 taxi (see file 'optimization improvement example 1')
-![[optimization improvement example 1.pdf]]
-This is potentially resulted from how we handling local search swap_area()
+
+The solution is potentially resulted from how we handling the candidates resulted from local search swap_area()
 
 Recall in our optimizer, we handles trips as followed:
 
-step 1: generate candidates
+==step 1==: generate candidates
 [see codes](https://github.com/takemobiteam/tui-continuous-planning-system/blob/main/cps/planning_engine/local_optimizer.py#L334-L341)
 ```text
 for any trips pair t1, t2:
@@ -12,8 +12,8 @@ for any trips pair t1, t2:
 	candidates <- try to combine t2 and a third trip into t1
 	candidates <- try to disspate t1 to other trips (exhaust)
 ```
-step 2: sort the candidate and yield a best trip
-step 3: For best trip's old trip, we only retain the best trip and kill all the other potentials from this old trip. (even a third swap might result in an optimal).
+==step 2==: sort the candidate and yield a best trip
+==step 3==: For best trip's old trip, we only retain the best trip and kill all the other potentials from this old trip. (even a third swap might result in an optimal).
 [see codes](https://github.com/takemobiteam/tui-continuous-planning-system/blob/main/cps/planning_engine/local_optimizer.py#L376-L383)
 for any old trip resulted in current best trip:
 	remove old trip itself

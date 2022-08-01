@@ -19,9 +19,11 @@ for any old trip resulted in current best trip:
 	remove old trip itself
 	remove any candidates originated from this old_trip
 
-From the beginning, we know we can get to the optimal through two area swaps. For example, if we first swap_area(trip 53, trip 55) AND RETAIN THE RESULT which swap Maria Studios (from 55) with Altantica Eleon Grand (from 53). Then in the next optimization run, we have another area swap swap_area(trip 53, trip 77) and might yield a solution which swap Plessas Palace (from 77) with TUI BLUE Zante Maris (from 53). But if as our optimize does, if the first swap between 53 and 55 yield a best trip which is not the same as the above first swap, then the solution with the above first swap would be killed in step 3. 
+From the beginning, we know we can get to the optimal through two area swaps. For example, if we first swap_area(trip 53, trip 55) AND RETAIN THE RESULT which swap Maria Studios (from 55) with Altantica Eleon Grand (from 53). Then in the next optimization run, we have another area swap swap_area(trip 53, trip 77) and might yield a solution which swap Plessas Palace (from 77) with TUI BLUE Zante Maris (from 53). But if as our optimize does, if the first swap between 53 and 55 yield a best trip which is not the same as the above first swap, then the solution with the above first swap would be killed in step 3.
+(In other cases, if the best trip from the first swap doesn't originate from swap between trip 53 and trip 55, that's safe.)
 
-Generally speaking, if an optimal solution is not monotonically cost-reducing from pair-wise swapping, there is a risk that we kill the path to the optimal too early.
+Generally speaking, if an optimal solution is not monotonically cost-reducing from pair-wise swapping, there is a risk that we kill the paths to the optimal. 
+PS: we can't say the risk is high, in some cases that there are many alternative pairwise swaps that lead to the optimal or closed-optimal, killing some of them might not be an issue. 
 
 ![[sub optimal case 1.jpg]]
 

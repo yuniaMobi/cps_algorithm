@@ -21,8 +21,6 @@ rearrage t4 with its compatible trips (maybe t1,t2,t3) --> 1st for loop
 
 iterate existing trips t1 t2 t3 and try to rearrange them with their own compatible groups intersection with existing trips(i.e self.trips)
 
-
-
 Issue: some generated candiate(s) coincide with some old trips from other candidates
 Question: is it possible from the generation process that we just eliminate those coincidence? 
 c1 == best1.old_trip
@@ -81,7 +79,6 @@ if len(self.bookings) == 0:
 
 	return True
 
-  
 
 if self.vehicle is None:
 

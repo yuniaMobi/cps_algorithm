@@ -1,56 +1,60 @@
 
-Denote
 
 $$
 \begin{align}
-c_i: & \text{volumn of client } i \\
-v_j: & \text{vehicle capacity of vehicle }j  \\
-f_j: & \text{operation fee of vehicle } j\\
+\text{Constants:} &\\
+b_i: & \text{seats of booking $i$}\\
+v_j: & \text{vehicle capacity of vehicle assigned to trip $j$} \\
+\text{Known:} &\\
+\mathcal{T}(\mathcal{L}): & \text{a set of trips $T(L)$, $L$ is a combination of locations $\{ l_{i^L_1}, l_{i^L_2}, \ldots, l_{i^L_2} \}$ } \\
+\text{Variables:} &\\
+f_j: & \text{operation fee of vehicle assigned to trip $j$}\\
+c_j: & \text{distance cost of trip $j$}\\
 
 y_j: & y_j =
 	\begin{cases}
-      1 & \text{if vehicle $j$ is put into use}\\
+      1 & \text{if trip $j$ is selected}\\
+      0 & \text{otherwise}
+  \end{cases} \\
+Y_{jl}: & Y_{jl} =
+	\begin{cases}
+      1 & \text{if booking $j$ has $l$ as destination}\\
       0 & \text{otherwise}
     \end{cases} \\
-Y_{jk}: & Y_{jk} =
+\chi^{bT}_{ij}: &\chi^{bT}_{ij} =
 	\begin{cases}
-      1 & \text{if vehicle $j$ covers location $k$}\\
+      1 & \text{if booking $i$ is assigned to trip $j$}\\
       0 & \text{otherwise}
     \end{cases} \\
-\chi^V_{ij}: &\chi^V_{ij} =
+\alpha^{bL}_{il}: &\alpha^{bL}_{il} =
 	\begin{cases}
-      1 & \text{if client $i$ is assigned to vehicle $j$}\\
+      1 & \text{if booking $i$ has location $l$ as destination}\\
       0 & \text{otherwise}
     \end{cases} \\
-\alpha^L_{ik}: &\alpha^L_{ij} =
+\chi^{TL}_{jl}: &\chi^{TL}_{jl} =
 	\begin{cases}
-      1 & \text{if client $i$ has location $k$ as destination}\\
-      0 & \text{otherwise}
-    \end{cases} \\
-\chi_{C(TSP)}: &\chi_{C(TSP)} =
-	\begin{cases}
-      1 & \text{if combination C of location is picked}\\
+      1 & \text{if trip $j$ covers location $l$}\\
       0 & \text{otherwise}
     \end{cases} \\
 \end{align}
 $$
-Given $c$ client volumn, $v$ vehicle capacity, $f$ operation fee of each vechicle , $\alpha$ requirement of clients, $C(TSP)$ the outcome of TSP.  the goal is to minimize the total cost
-$$ \text{COST} = \sum_j f_j\cdot y_j 
+Given $b$ as booking $b$'s seat, $v$ as vehicle $v$'s' capacity, $f$ operation fee of each vechicle , $\alpha$ requirement of bookings, $C(TSP)$ the outcome of TSP.  the goal is to minimize the total cost
+$$ \text{COST} = \sum_j (f_j + c_j)\cdot y_j
 $$
-while satisfies
+when satisfies
 $$
 \begin{align}
-\chi^V_{ij} + \chi^V_{i'j} & = 1 \qquad \text{if $i$ and $i'$ are incompatible}\\
-\sum_i\chi^V_{ij} & = 1 \qquad \\
-\sum_jc_i \cdot \chi^V_{ij} &\leq v_j \qquad v_j \in V \\
-\sum_{k \in \chi_{C(TSP)}} \chi_{C(TSP)} & \leq \chi_{ik}^L
+\chi^{bT}_{ij} + \chi^{bT}_{i'j} & = 1 \qquad \text{if $i$ and $i'$ are incompatible} & (1)\\
+\sum_j\chi^{bT}_{ij} & = 1 \qquad & (2)\\
+\sum_ib_i \cdot \chi^{bT}_{ij} &\leq v_j \qquad v_j \in V  & (3)\\
+\sum_{l \in \chi_{C(TSP)}} \chi_{C(TSP)} & \leq \chi_{ik}^L & (4)
 \end{align}
 $$
 The constraints are based on the following consideration:
-0. incompatible clients are 互斥
-1. Each client is required to be picked up by a vehicle
-2. Each client's destination (location) request should be met by any route
-3. Each vehicle's capacity should not be exceeded.
+1. Incompatible bookings constraint, the more stricter version is $$\chi^T_{ij} \cdot \chi^T_{i'j} = 0$$. It introduces nonlinearity, so in the formalization we adopt the linear one.
+2. Each booking is required to be picked up by a vehicle.
+3. Each booking's destination (location) request should be met by any route
+4. Each vehicle's capacity should not be exceeded.
 
 
 Concerns:

@@ -60,6 +60,8 @@ y^P_p: & y^P_p =
 \end{align}
 $$
 
+![[formalization1.png]]
+
 ### Formalization
 Our goal is to minimize the cost:
 $$ \text{COST} = \sum_j (\alpha f_j + \beta d_j)\cdot y_j

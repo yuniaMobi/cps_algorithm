@@ -6,14 +6,13 @@ trip 53 bus 55 bus 77 taxi (see file 'case 1 53 55 77')
 + We could modify the code to control when to delete the best trip's old trip.
 
 ### Analysis
-To yield the suggested optimal, we could follow two operations:
+To yield the suggested optimal, there are two potential operations:
 ```text
-1 area swap between bus 53 and bus 55
-2 bookings swap between bus 53 and taxi 77 (not sure if it could be achieved using syphoon booking)
-	syphoon booking between taxi 77 and bus 53
-	another syphoon booking between bus 53 and taxi 77
+1 start from area swap between bus 53 and bus 55, then followed by swap hotel between bus 53 and texi 77 
+2 reverse order of 1
 ```
 
+The operations in our production code are enough. What could be the problem? 
 #### area swap
 One of the reason could be how we handling the candidates resulted from local search swap_area()
 
@@ -44,7 +43,8 @@ PS: we can't say the risk is high, in some cases that there are many alternative
 
 ![[blindspot of local search.jpg]]
 
-
+#### Discussion
+What happen if we need to swap bookings? for example, the minimum seats in bus 53 per hotel is 4. The swap hotel doesn't work since 4 people exceed the capacity of a taxi. On the other hand, syphoon_booking could fail since we only have 3 rounds (a swap of 3 seats needs 6 rounds of syphoon)
 
 
 

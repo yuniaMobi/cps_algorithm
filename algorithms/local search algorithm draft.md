@@ -34,4 +34,4 @@ The local operations for a given trip $t = [b_1, b_2, \ldots, b_k]$ includes the
 	+ delete one area of bookings $\{b^1_i,\ldots\}$ from $t_1$ and add it to another trip $t_2$
 	+ swap two area of bookings $\{b^1_i,\ldots\}$ with $\{b^2_i,\ldots\}$ from another trip $t_2$
 
-+ Trip level (?)
++ Trip level (?) hotel level

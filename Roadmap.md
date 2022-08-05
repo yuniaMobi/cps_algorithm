@@ -1,3 +1,7 @@
+For progress, check 'meeting updates' folder.
+
+Most of files are in markdown format. It is best to view in app obsidian or IDE like vscode with markdown plugin. The pdf version has the same content with markdown version.
+
 There are two major methods to solve the problems. One is IP (integer programming), the other is local search.
 
 ### Integer programming

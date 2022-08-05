@@ -1,5 +1,11 @@
-trip 53 bus 55 bus 77 taxi (see file 'optimization improvement example 1')
+trip 53 bus 55 bus 77 taxi (see file 'case 1 53 55 77')
 
+#### Take aways
++ ==(important)== We need to add swap_bookings in our code base (depth 3 syphoon_booking() likely fail to do the job )
++ We could modify the code to control the depth of area_swap(). Currently we are using 1 swap, we can add 2 swap (at the cost of time complexity).
++ We could modify the code to control when to delete the best trip's old trip.
+
+### Analysis
 To yield the suggested optimal, we could follow two operations:
 ```text
 1 area swap between bus 53 and bus 55

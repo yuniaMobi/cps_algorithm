@@ -1,7 +1,17 @@
+### Problem setting
 Given a set of bookings $b_i \in \mathcal{B}$ and a unlimited set of vechicle $v_j \in \mathcal{V}$. Each booking $b_i$ associate with its seats $s_i$ and locations $l_i \in \mathcal{L}$.  Each vechicle has its own operation fee $f_j$ and capacity $c_j$.
 The goal is to select a subset of vechicles, each associates with a  $p_j$ covering a subset of locations $L(p_j) \subset \mathcal{L}$ and an assignment of subset of clients. The vehicles take its clients to their destinations with minimum cost.
 
-The following formalization is based on the we have potential paths for vehicles beforehand (see $\mathcal{T}(\mathcal{L})$). 
+==The following formalization is based on the we have potential paths for vehicles beforehand (see $\mathcal{P}$). 
+
+### counterpart in codebase
+booking <-> booking 
+location <-> hotels (or hotel areas)
+trip <-> trip
+vehicle <-> vehicle
+
+
+### Annotations
 $$
 \begin{align}
 \text{Constants:} &\\
@@ -19,7 +29,7 @@ c_j: & \text{vehicle capacity of vehicle assigned to trip $j$} \\
     \end{cases} \\
 \text{Known:} &\\
 \mathcal{P}: & \text{a set of paths $p$, $p$ can be represented by a list of locations $\{ l^p_1, l^p_2, \ldots, l^p_{p_k} \}$ } \\
-f_j: & f(v_j), \text{ operation fee of vehicle assigned to trip $j$}\\
+f_j: & f(v_j), \text{ operation fee of vehicle assigned to trip $j$, Fees could be determined by the vehicle's capacity $c_j$, the total distance to travel, the type of vehicle and the location of destinations.}\\
 d_p: & dist_{TSP}(\cup \{ l\}| \chi_{pl} > 0), \text{ total distance cost of path $p$}\\
 \text{Variables:} &\\
 y^T_j: & y^T_j =
@@ -49,6 +59,9 @@ y^P_p: & y^P_p =
     \end{cases} \\
 \end{align}
 $$
+
+### Formalization
+Our goal is to minimize the cost:
 $$ \text{COST} = \sum_j (\alpha f_j + \beta d_j)\cdot y_j
 $$
 when satisfies
@@ -61,6 +74,7 @@ $$
 \sum_{p} \chi_{pj}^{PT} \cdot \gamma_{pl}^{PL} & \geq  \chi_{jl}^{TL}  & (5)\\
 \chi_{ij}^{bT}  & \leq y^T_j & (6) \\
 \chi^{PT}_{pj} & \leq y^P_p & (7)  \\
+y^P_p, y^T_j, \chi_{jl}^{TL} , \chi_{ij}^{bT}, \chi^{PT}_{pj} & \in [0,1]
 \end{align}
 $$
 The constraints are based on the following consideration:
@@ -76,3 +90,5 @@ The constraints are based on the following consideration:
 
 Concerns:
 The number of potential paths could be exponential.
+
+

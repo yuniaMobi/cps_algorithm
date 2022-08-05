@@ -22,10 +22,5 @@ $b_i \in \mathcal{B}$, $a_i \in \mathcal{A}$, $T \subset \mathcal{B}$
 
 find an assignment of bookings, i.e. $\sigma: b \mapsto T$, such that
 
-
-
-
-
-
-Classical CVRP (capacitated vehicle routing problem) variant:
-
+[Bin packing](https://en.wikipedia.org/wiki/Bin_packing_problem)
+[Bin pakcing approx ratio](https://www.researchgate.net/figure/1-Summary-of-heuristics-for-the-Bin-Packing-Problem_tbl1_265974871)

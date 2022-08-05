@@ -2,9 +2,10 @@ For progress, check 'meeting updates' folder.
 
 Most of files are in markdown format. It is best to view in app obsidian or IDE like vscode with markdown plugin. The pdf version has the same content with markdown version.
 
+### project related
 There are two major methods to solve the problems. One is IP (integer programming), the other is local search.
 
-### Integer programming
+#### Integer programming
 To use IP solver to handle the problem, the first step is to  formalize the problems into an LP (linear programming) problem. Then we could consider IP solver or modified IP solver. 
 
 For formalizations, see
@@ -19,7 +20,7 @@ Solvers includes google's ortools, MiniZinc packages, gurobi
 Note that IP method could be restricted by too many constraints and large inputs.
 
 
-### Local search
+#### Local search
 Our codebase is mainly based on local search. My project includes three parts: 
 1. analysis of our algorithm in production
 2. case study of sub optimal solution produced by our algorithm

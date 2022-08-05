@@ -36,7 +36,7 @@ From the beginning, we know we can get to the optimal through two area swaps. Fo
 Generally speaking, if an optimal solution is not monotonically cost-reducing from pair-wise swapping, there is a risk that we kill the paths to the optimal. 
 PS: we can't say the risk is high, in some cases that there are many alternative pairwise swaps that lead to the optimal or closed-optimal, killing some of them might not be an issue. 
 
-![[sub optimal case 1.jpg]]
+![[blindspot of local search.jpg]]
 
 
 

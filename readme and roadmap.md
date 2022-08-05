@@ -23,9 +23,13 @@ Note that IP method could be restricted by too many constraints and large inputs
 #### Local search
 Our codebase is mainly based on local search. My project includes three parts: 
 1. analysis of our algorithm in production
+	folder ── algorithm analysis drafts
 2. case study of sub optimal solution produced by our algorithm
+	folder ── case analysis
 3. improve of our algorithm and design new algorithm.
+	folder ── algorithms
 
+(contents under each folder might change during time)
 ── algorithm analysis drafts #1
 │   ├── codes_trip_feasible().md
 │   ├── compatible_group.md

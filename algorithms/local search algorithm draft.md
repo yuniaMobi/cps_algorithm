@@ -28,7 +28,6 @@ The local operations for a given trip $t = [b_1, b_2, \ldots, b_k]$ includes the
 		$t_1'= [b^1_1, b^1_2, \ldots, b^1_{k_1}, b^2_s, b^2_{s+1}, \ldots, b^2_t]$, $t'_2= [b^2_1, \ldots, b^2_{s-1}, \ldots, b^2_{t+1}, b^2_{t+2}, \ldots, b^2_{k_2}]$
 	+ delete booking $b_i$ from $t2$ and add it to another trip $t_1$
 		
-
 + area level (set level):
 	+ insert one area of bookings $\{b^1_i,\ldots\}$ into $t_1$ from another trip $t_2$
 	+ delete one area of bookings $\{b^1_i,\ldots\}$ from $t_1$ and add it to another trip $t_2$
